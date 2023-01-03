@@ -1,0 +1,57 @@
+body {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;  
+        background-color: green;   
+}
+
+main {
+    grid-area: 1 / 2 / 5 / 5; 
+    text-align: center;
+}
+
+#BETS {
+    grid-area: 3 / 1 / 5 / 2;; 
+    text-align: center;
+}
+
+#ACCOUNT {
+    grid-area: 3 / 5 / 5 / 6;; 
+    text-align: justify;
+}
+
+#hit-check {
+    grid-area: 5 / 2 / 6 / 5;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#bet1 {
+    width: 50px;
+}
+#bet5 {
+    width: 50px;
+}
+#bet10 {
+    width: 50px;
+}
+
+#hit-btn {
+    width: 75px;
+}
+
+#check-btn {
+    width: 75px;
+}
+
+#account  {
+    border: 1px solid black;
+}
+
+#new-game {
+    grid-area: 5 / 5 / 6 / 6; 
+    width: 75px;
+    height: 50px;
+}
