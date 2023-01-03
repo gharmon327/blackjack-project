@@ -14,9 +14,9 @@ project #1
 - `bet5.addEventListener('click,'()=>{if (player1 === wins){player1.accountBalance= accountBalance +5} else(player1.accountBalance= accountBalance -5)})`
 - `bet10.addEventListener('click,'()=>{if (player1 === wins){player1.accountBalance= accountBalance +10} else(player1.accountBalance=accountBalance -10)})`
 - **As a user, I want to be able to hit for a new card**
-- - `hit.addEventListener('click,'()=>{})`
+- `hit.addEventListener('click,'()=>{document.body.innerHTML = " "})`
 - **As a user, I want to be able to check to hold my hand**
-- - `check.addEventListener('click,'()=>{null})`
+- `check.addEventListener('click,'()=>{null})`
 - **As a user, I want to be able to see who won the round**
 - `if(player1Cards === 21 && player2Cards => 21){return "player 1 Wins"}`
 -   `elseIf(player2Cards === 21 && player1Cards => 21){return "player 2 Wins"}`
