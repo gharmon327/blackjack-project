@@ -49,6 +49,7 @@ main {
 #account  {
     border: 1px solid black;
     background-color: white;
+    text-align: center;
 }
 
 #new-deal {
@@ -94,8 +95,10 @@ main {
 }
 
 #player-sum {
-    border: 1px solid black;
-    background-color: white;
+    /* border: 1px solid black; */
+    /* background-color: white; */
+    /* width: 50px;
+    align-content: center; */
 }
 
 #new-game {
