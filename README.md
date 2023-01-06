@@ -2,6 +2,7 @@
 Goal of the game is to get the value of your cards to equal 21 without going over. If neither player reaches 21 then the player with the highest value wins. 
 
 link
+![BlackJack](file:///Users/gregharmon/Desktop/Blackjack%20screenshot.png)
 
 ## Technology Used
 - JavaScript
@@ -11,7 +12,7 @@ link
 ## Getting Started
 To play this game live you can click this [Link](https://gharmon327.github.io/blackjack-project/)
 
-Instructions
+**Instructions:**
 - The game starts with the cards dealt.
 - First you must place a bet between 1, 5, or 10.
 - After you bet you can either hit for a new card or check to reveal dealers hand and decide winner. 
