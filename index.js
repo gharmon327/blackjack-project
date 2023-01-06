@@ -60,9 +60,13 @@ const getRandomCard = ()=>{
 // pull 4 random cards and push them to the game board screen 
 const dealCards =()=>{
    dealerHand = [getRandomCard(), getRandomCard()]
-    dealerHand.forEach((card) => {
+    dealerHand.forEach((card, index) => {
         const newCard = dealerCards.cloneNode(true)
-        // dealerHand[0].newCard.classList.add('.hide')
+        // if (index === 0){newCard.classList.add('.hidden')
+        // newCard.innerHTML = card}
+        // dealerCards.append(newCard)}
+        index === 0? newCard.classList.add('.hidden'):
+        // index[0].dealerHand.classList.add('.hidden')
         newCard.innerHTML = card
         dealerCards.append(newCard)
     })
@@ -71,9 +75,9 @@ const dealCards =()=>{
         const newCard = playerCards.cloneNode(true)
         newCard.innerHTML = card
         playerCards.append(newCard)
-    });
-//    console.log(dealerHand, playerHand)
+    })
    playerSum.innerText= (getNumber(playerHand))
+//    console.log(playerHand, dealerHand)
 }
 const randomCard = getRandomCard()
 
@@ -121,6 +125,9 @@ const addDealerCard = ()=>{
     if(betOne === false && betFive === false && betTen === false){
         return
     }
+    const hiddenCard = dealerCards.children[0]
+    hiddenCard.classList.remove('.hidden')
+    hiddenCard.innerHTML = dealerHand[0]
     let totalValue = getNumber(dealerHand)
     if(totalValue < 17){
         let newCard = getRandomCard()
@@ -138,6 +145,7 @@ const addDealerCard = ()=>{
 }
 checkBtn.addEventListener('click', addDealerCard)
 
+// Creating a function to decide winner and implement Bet
 const decideWinner = ()=> {
     let dealerValue = getNumber(dealerHand)
     let playerValue = getNumber(playerHand)
@@ -145,14 +153,14 @@ const decideWinner = ()=> {
         return
     }
     if(playerValue >21){
-        results.innerText= 'Dealer Wins'
+        results.innerText= 'Player bust with '+ playerValue + ', Dealer Wins!'
         canCheck = false
         canHit = false
         if(betOne === true){accountBalance -= 1}
             else if(betFive === true){accountBalance -= 5}
             else if(betTen === true){accountBalance -= 10}
     }else if(dealerValue > 21){
-        results.innerText=('dealer bust player wins!')
+        results.innerText=('Dealer bust with '+ dealerValue +', Player wins!')
         canCheck = false
         canHit = false
         if(betOne === true){accountBalance += 1}
@@ -160,14 +168,14 @@ const decideWinner = ()=> {
             else if(betTen === true){accountBalance += 10}
             account.innerText = accountBalance
     }else if(dealerValue > playerValue && dealerValue <= 21){
-        results.innerText= ('dealer wins with '+ dealerValue)
+        results.innerText= ('Dealer wins with '+ dealerValue +'!')
         canCheck = false
         canHit = false
         if(betOne === true){accountBalance -= 1}
             else if(betFive === true){accountBalance -= 5}
             else if(betTen === true){accountBalance -= 10}
     }else if(playerValue > dealerValue && playerValue <= 21){
-        results.innerText= ('player wins with '+ playerValue)
+        results.innerText= ('Player wins with '+ playerValue +'!')
         canCheck = false
         canHit = false
         if(betOne === true){accountBalance += 1}
@@ -175,6 +183,8 @@ const decideWinner = ()=> {
             else if(betTen === true){accountBalance += 10}
     }else if(playerValue === dealerValue){
         results.innerText= ('Tie Game, player and dealer have ' + playerValue)
+        canCheck = false
+        canHit = false
     }else if(playerValue === 21){
         results.innerText= ('Player has Blackjack')
         if(betOne === true){accountBalance += 1}
@@ -191,7 +201,11 @@ const decideWinner = ()=> {
 
 bet1.addEventListener('click', () => {
     betOne = true
-    results.innerText = ''
+    betFive = false
+    betTen = false
+    canHit = true
+    canCheck = true
+    results.innerText = 'Bet 1'
     if(accountBalance <= 0){
         betOne = false
         canHit = false
@@ -201,7 +215,11 @@ bet1.addEventListener('click', () => {
    })
 bet5.addEventListener('click',()=>{
     betFive = true
-    results.innerText = 'bet 5'
+    betOne = false
+    betTen = false
+    canHit = true
+    canCheck = true
+    results.innerText = 'Bet 5'
     if(accountBalance <= 0){
         results.innerText = 'No funds, Start new game'
     }else if(accountBalance < 5){
@@ -211,19 +229,24 @@ bet5.addEventListener('click',()=>{
     })
 bet10.addEventListener('click',()=>{
     betTen = true
-    results.innerText = 'bet 10'
+    betOne = false
+    betFive = false
+    canHit = true
+    canCheck = true
+    results.innerText = 'Bet 10'
     if(accountBalance <= 0){
         results.innerText = 'No funds, Start new game'
     }else if(accountBalance < 10){
         betTen = false
         canHit = false
         canCheck = false
-        results.innerText = 'No enough funds, try lower amount'
+        results.innerText = 'Not enough funds, try lower amount'
     }
     })
 
 newDeal.addEventListener('click', ()=>{
     if(accountBalance<= 0){
+        results.innerText = 'No funds, Start new game'
         return
     }
     if(betOne === false && betFive === false && betTen === false){

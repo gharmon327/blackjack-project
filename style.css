@@ -58,18 +58,18 @@ main {
     height: 50px;
 }
 
-.hide {
-    content: '';
-    background-color: blue;
-    width: 120px;
+/* .hidden {
+    color: white;
+    background-color: white; 
     height: 120px;
-}
+    width: 120px;
+}  */
 
 #player-cards {
     height: 120px;
     width: 120px;
     border: 2px solid black;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     font-size: 3rem;
     text-align: center;
     display: inline;
@@ -80,11 +80,20 @@ main {
     height: 120px;
     width: 120px;
     border: 2px solid black;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     font-size: 3rem;
     text-align: center;
     display: inline;
     background-color: white;
+    /* padding: 10px; */
+}
+
+.hidden {
+    /* content: ''; */
+    color: blue;
+    background-color: blue;
+    height: 120px;
+    width: 120px;
 }
 
 #results {
