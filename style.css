@@ -58,18 +58,10 @@ main {
     height: 50px;
 }
 
-/* .hidden {
-    color: white;
-    background-color: white; 
-    height: 120px;
-    width: 120px;
-}  */
-
 #player-cards {
     height: 120px;
     width: 120px;
     border: 2px solid black;
-    /* border-radius: 10px; */
     font-size: 3rem;
     text-align: center;
     display: inline;
@@ -80,12 +72,10 @@ main {
     height: 120px;
     width: 120px;
     border: 2px solid black;
-    /* border-radius: 10px; */
     font-size: 3rem;
     text-align: center;
     display: inline;
     background-color: white;
-    /* padding: 10px; */
 }
 
 #dealer-cards.hidden {
@@ -100,13 +90,6 @@ main {
     border: 2px solid black;
     font-size: large;
     background-color: white;
-}
-
-#player-sum {
-    /* border: 1px solid black; */
-    /* background-color: white; */
-    /* width: 50px;
-    align-content: center; */
 }
 
 #new-game {
