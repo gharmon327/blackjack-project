@@ -29,6 +29,7 @@ const initialize = () => {
     shuffleDeck()
     dealCards()
     account.innerText = 20
+    results.innerText= 'Place a bet to start the game'
 }
 
 // goes through values and suits in a double for loop to spit out a combo to get 52 cards
@@ -62,13 +63,9 @@ const dealCards =()=>{
    dealerHand = [getRandomCard(), getRandomCard()]
     dealerHand.forEach((card, index) => {
         const newCard = dealerCards.cloneNode(true)
-        // if (index === 0){newCard.classList.add('.hidden')
-        // newCard.innerHTML = card}
-        // dealerCards.append(newCard)}
-        index === 0? newCard.classList.add('.hidden'):
-        // index[0].dealerHand.classList.add('.hidden')
-        newCard.innerHTML = card
-        dealerCards.append(newCard)
+        if (index === 0){newCard.classList.add('hidden')}
+        newCard.innerHTML = card;
+        dealerCards.append(newCard);
     })
    playerHand = [getRandomCard(), getRandomCard()]
    playerHand.forEach((card) => {
@@ -77,7 +74,6 @@ const dealCards =()=>{
         playerCards.append(newCard)
     })
    playerSum.innerText= (getNumber(playerHand))
-//    console.log(playerHand, dealerHand)
 }
 const randomCard = getRandomCard()
 
@@ -126,7 +122,7 @@ const addDealerCard = ()=>{
         return
     }
     const hiddenCard = dealerCards.children[0]
-    hiddenCard.classList.remove('.hidden')
+    hiddenCard.classList.remove('hidden');
     hiddenCard.innerHTML = dealerHand[0]
     let totalValue = getNumber(dealerHand)
     if(totalValue < 17){
@@ -213,6 +209,7 @@ bet1.addEventListener('click', () => {
         results.innerText = 'No funds, Start new game'
     }
    })
+   
 bet5.addEventListener('click',()=>{
     betFive = true
     betOne = false
@@ -227,6 +224,7 @@ bet5.addEventListener('click',()=>{
         results.innerText = 'Not enough funds, try lower amount'
     }
     })
+
 bet10.addEventListener('click',()=>{
     betTen = true
     betOne = false
@@ -260,6 +258,7 @@ newDeal.addEventListener('click', ()=>{
     betFive= false
     betTen = false
     canCheck = true
+    results.innerText= 'Place a bet'
     dealCards()
 })
 
@@ -278,50 +277,3 @@ newGame.addEventListener('click', ()=>{
 })
 
 initialize()
-
-// const decideWinner = ()=> {
-//     let dealerValue = getNumber(dealerHand)
-//     let playerValue = getNumber(playerHand)
-//     if(playerValue >21){
-//         results.innerText= 'Dealer Wins'
-//     }else if(dealerValue > playerValue && dealerValue <= 21){
-//         results.innerText= ('dealer wins with '+ dealerValue)
-//     }else if(playerValue > dealerValue && playerValue <= 21){
-//         results.innerText= ('player wins with '+ playerValue)
-//     }else if(playerValue === dealerValue){
-//         results.innerText= ('Tie Game, player and dealer have ' + playerValue)
-//     }else if(playerValue === 21){
-//         results.innerText= ('Player has Blackjack')
-//     }else if(dealerValue === 21){
-//         results.innerText= ('Dealer has Blackjack')
-//     }
-// }
-
-// const betting = () => {
-//     bet1.addEventListener('click', () => {
-//         betOne = true
-//         if(results.innerText === 'dealer bust player wins!' || results.innerText == 'player wins with '){
-//             accountBalance = accountBalance + 1
-//         }else if(results.innerText === 'Dealer Wins' || results.innerText == 'dealer wins with ')
-//             {accountBalance = accountBalance - 1
-//         }else{null}
-//         console.log(accountBalance)
-//        })
-//     bet5.addEventListener('click',()=>{
-//         betFive = true
-//         if(results.innerText === 'dealer bust player wins!' || results.innerText == 'player wins with '){
-//             accountBalance = accountBalance + 5
-//         }else if(results.innerText === 'Dealer Wins' || results.innerText == 'dealer wins with ')
-//             {accountBalance = accountBalance - 5
-//         }else {null}
-//         })
-//     bet10.addEventListener('click',()=>{
-//         betTen = true
-//         if(results.innerText === 'dealer bust player wins!' || results.innerText == 'player wins with '){
-//             accountBalance = accountBalance + 10
-//         }else if(results.innerText === 'Dealer Wins' || results.innerText == 'dealer wins with ')
-//             {accountBalance = accountBalance - 10
-//         }else{null}
-//        })
-//        account.innerText = accountBalance
-// }

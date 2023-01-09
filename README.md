@@ -1,7 +1,7 @@
 # Blackjack
 Goal of the game is to get the value of your cards to equal 21 without going over. If neither player reaches 21 then the player with the highest value wins. 
 
-![BlackJack](https://user-images.githubusercontent.com/119767329/211103617-3dd48314-5166-433a-b6de-3768197c5303.png))
+![BlackJack](https://user-images.githubusercontent.com/119767329/211103617-3dd48314-5166-433a-b6de-3768197c5303.png)
 
 ## Technology Used
 - JavaScript

@@ -88,10 +88,9 @@ main {
     /* padding: 10px; */
 }
 
-.hidden {
-    /* content: ''; */
-    color: blue;
-    background-color: blue;
+#dealer-cards.hidden {
+    color: white;
+    background-color: white;
     height: 120px;
     width: 120px;
 }
